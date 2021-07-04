@@ -1,29 +1,24 @@
 import './App.css';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import HomePage from './views/HomePage';
 import MoviesPage from './views/MoviesPage';
 import MovieDetailsPage from './views/MovieDetailsPage';
-import Cast from './views/Cast';
-import Reviews from './views/Reviews';
+import Cast from './components/Cast';
+import Reviews from './components/Reviews';
 import NotFound from './views/NotFound';
+import routes from './routes';
+import AppBar from './components/AppBar';
 
 const App = () => (
   <>
-    <ul>
-      <li>
-        <NavLink to="/movies">Movies</NavLink>
-      </li>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-    </ul>
+    <AppBar />
 
     <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route exact path="/movies" component={MoviesPage} />
-      <Route path="/movies/:movieId" component={MovieDetailsPage} />
-      <Route path="/movies/:movieId/cast" component={Cast} />
-      <Route path="/movies/:movieId/reviews" component={Reviews} />
+      <Route exact path={routes.home} component={HomePage} />
+      <Route exact path={routes.movies} component={MoviesPage} />
+      <Route path={routes.moviesDetails} component={MovieDetailsPage} />
+      <Route path={routes.moviesCast} component={Cast} />
+      <Route path={routes.moviesReviews} component={Reviews} />
       <Route component={NotFound} />
     </Switch>
   </>
