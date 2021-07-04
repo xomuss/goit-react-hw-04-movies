@@ -27,12 +27,12 @@ class MovieDetailsPage extends Component {
     this.setState({ ...response.data });
 
     const responseCast = await axios.get(
-      `https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}/credits?api_key=c2a3095b3c93af2cd3988a9dd6f9ca00&language=en-US`,
+      `movie/${movieId}/credits?&language=en-US`,
     );
     this.setState({ castList: responseCast.data.cast });
 
     const responseReviews = await axios.get(
-      `https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}/reviews?api_key=c2a3095b3c93af2cd3988a9dd6f9ca00&language=en-US&page=1`,
+      `movie/${movieId}/reviews?&language=en-US&page=1`,
     );
     this.setState({ reviewsData: responseReviews.data.results });
   }
@@ -93,7 +93,13 @@ class MovieDetailsPage extends Component {
 
             <Route
               path={`${match.path}/cast`}
-              render={props => <Cast {...props} cast={this.state.castList} />}
+              render={props => (
+                <Cast
+                  {...props}
+                  cast={this.state.castList}
+                  url={this.state.baseUrl}
+                />
+              )}
             />
             <Route
               path={`${match.path}/reviews`}

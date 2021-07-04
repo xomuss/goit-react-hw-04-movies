@@ -12,6 +12,7 @@ class MoviesPage extends Component {
   async componentDidMount() {
     const search = this.props.location.search;
     const params = new URLSearchParams(search);
+
     if (params.has('query')) {
       const locationQuery = params.get('query');
       const data = await this.makeRequest(this.state.page, locationQuery);
@@ -37,13 +38,6 @@ class MoviesPage extends Component {
 
   handleSubmit = async evt => {
     evt.preventDefault();
-    const searchQuery = this.state.query;
-    console.log(this.state.query);
-
-    // const response = await axios.get(
-    //   `search/movie?query=${searchQuery}&language=en-US&page=1&include_adult=false`,
-    // );
-    // this.setState({ movies: response.data.results });
 
     this.props.history.push({
       search: `?query=${this.state.query}`,

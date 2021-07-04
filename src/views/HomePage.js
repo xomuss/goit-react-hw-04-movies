@@ -17,8 +17,6 @@ class HomePage extends Component {
 
     return (
       <>
-        <h1>hello react</h1>
-
         {movies.length > 0 && (
           <ul>
             {movies.map(movie => (
