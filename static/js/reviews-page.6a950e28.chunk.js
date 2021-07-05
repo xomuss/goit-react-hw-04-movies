@@ -1,0 +1,2 @@
+(this["webpackJsonpgoit-react-hw-04-movies"]=this["webpackJsonpgoit-react-hw-04-movies"]||[]).push([[6],{49:function(e,t,n){"use strict";n.r(t),n.d(t,"default",(function(){return r}));n(0);var i=n(1),r=function(e){var t=e.reviews;return t.length>0?Object(i.jsx)("p",{children:t[0].content}):Object(i.jsx)("p",{children:"We don't have any reviews for this movie"})}}}]);
+//# sourceMappingURL=reviews-page.6a950e28.chunk.js.map
