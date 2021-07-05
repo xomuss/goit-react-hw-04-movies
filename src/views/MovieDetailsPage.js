@@ -4,6 +4,7 @@ import { Route, NavLink } from 'react-router-dom';
 import Reviews from '../components/Reviews';
 import Cast from '../components/Cast';
 import routes from '../routes';
+import './MovieDetails.css';
 
 class MovieDetailsPage extends Component {
   state = {
@@ -60,15 +61,24 @@ class MovieDetailsPage extends Component {
               type="button"
               onClick={this.handleGoBack}
             >
-              go back
+              Go back
             </button>
-            <br />
 
-            <img src={`${baseUrl}${backdrop_path}`} alt="1213"></img>
-            <h2>{original_title}</h2>
-            <p>{overview}</p>
-            <p>{vote_average}</p>
-            <ul>
+            <div className="container">
+              <img
+                className="movie-img"
+                src={`${baseUrl}${backdrop_path}`}
+                alt={original_title}
+              ></img>
+              <div className="description-container">
+                <h1>{original_title}</h1>
+                <p>User score: {vote_average}</p>
+                <h2>Overview</h2>
+                <p>{overview}</p>
+              </div>
+            </div>
+            <ul className="add-inf">
+              Additional information
               <li>
                 <NavLink
                   to={{
